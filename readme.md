@@ -2,7 +2,7 @@
 
 ## PHP library for parsing gedcom genealogy files into objects
 
-## Forked from http://code.google.com/p/php-gedcom/
+### Forked from http://code.google.com/p/php-gedcom/
 
 ### How to use
 
