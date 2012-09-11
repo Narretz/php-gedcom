@@ -22,9 +22,7 @@ if(!empty($errors))
 
 foreach($gedcom->getIndi() as $indi)
 {
-   echo $indi->name[0]->name;
+   echo $indi->name[0]->name.'<br>';
 }
-
-// var_dump($gedcom);
 
 ?>
