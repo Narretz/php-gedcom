@@ -44,6 +44,17 @@ class Name extends \Gedcom\Parser\Component
             
             if($currentDepth <= $depth)
             {
+                //some gedcom programs do not set givn and surn
+                //in that case, set them from name field
+                if($name->getGivn() === null || $name->getSurn() === null)
+                {
+                    $split = preg_split("/\//", $name->getName());
+                    if(count($split) > 1)
+                      {
+                        $name->setGivn(trim($split[0]));
+                        $name->setSurn(trim($split[1]));
+                      }
+                }
                 $parser->back();
                 break;
             }
