@@ -63,7 +63,7 @@ class Parser
         if(!is_null($gedcom))
             $this->_gedcom = $gedcom;
         else
-            $this->_gedcom = new \gedcom\Gedcom();
+            $this->_gedcom = new \Gedcom\Gedcom();
     }
     
     /**
