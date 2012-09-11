@@ -32,7 +32,7 @@ class Asso extends \Gedcom\Parser\Component
         $depth = (int)$record[0];
         
         $asso = new \Gedcom\Record\Indi\Asso();
-        $asso->indi = $parser->normalizeIdentifier($record[2]);
+        $asso->addIndi($parser->normalizeIdentifier($record[2]));
         
         $parser->forward();
         

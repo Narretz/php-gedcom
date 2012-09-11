@@ -51,4 +51,11 @@ class Asso extends \Gedcom\Record implements Sourceable, Noteable
     {
         $this->_sour[] = $sour;
     }
+
+    /**
+     *
+     */
+    public function addIndi($indi){
+        $this->_indi = $indi;
+    }    
 }
