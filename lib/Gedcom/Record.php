@@ -73,6 +73,19 @@ abstract class Record
             throw new \Exception('Unknown method called: ' . $method);
         }
     }
+
+    /**
+     * Returns available class properties.
+     */
+
+    public function __get($var){
+        if($this->hasAttribute($var)){
+            $var = '_' . $var;
+            return $this->$var;
+        } else {
+            return null;
+        }
+    }    
     
     /**
      *
