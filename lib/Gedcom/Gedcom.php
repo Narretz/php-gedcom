@@ -129,18 +129,48 @@ class Gedcom
     }
     
     /**
+     * @brief Fetch a specific individual or all individuals
      *
+     * @param $indiId (optional) An individual Id
+     *
+     * @throw Throws an exception if the requested individual is not found
+     *
+     * @note If an array is returned, the array keys are individual Ids
+     *
+     * @return A single individual, if an ID is given as an argument. An associative array of individuals if no ID is given.
      */
-    public function getIndi()
+    public function getIndi($indiId = NULL)
     {
+	if(!is_null($indiId)){
+	   if(array_key_exists($indiId,$this->_indi)){
+	       return $this->_indi[$indiId];
+	   }else{
+	       throw new \Exception('Requested individual not found');
+	   }
+	}
         return $this->_indi;
     }
     
     /**
+     * @brief Fetch a specific family or all families 
      *
+     * @param $famId (optional) A family Id
+     *
+     * @throw Throws an exception if the requested family is not found
+     *
+     * @note If an array is returned, the array keys are family Ids
+     *
+     * @return A single family, if an ID is given as an argument. An associative array of families if no ID is given.
      */
-    public function getFam()
+    public function getFam($famId = NULL)
     {
+	if(!is_null($famId)){
+	   if(array_key_exists($famId,$this->_fam)){
+	       return $this->_fam[$famId];
+	   }else{
+	       throw new \Exception('Requested family not found');
+	   }
+	}
         return $this->_fam;
     }
     
