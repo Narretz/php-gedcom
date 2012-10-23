@@ -50,7 +50,7 @@ class Wife extends \Gedcom\Parser\Component
             switch($recordType)
             {
                 case 'AGE':
-                    $wife->age = trim($record[2]);
+                    $wife->setAge(trim($record[2]));
                 break;
                 
                 default:
