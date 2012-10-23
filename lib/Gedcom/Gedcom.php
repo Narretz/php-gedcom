@@ -121,10 +121,25 @@ class Gedcom
     }
     
     /**
+     * @brief Fetch a specific submitter or all submitters
      *
+     * @param $submId (optional) An submitter Id
+     *
+     * @throw Throws an exception if the requested submitter is not found
+     *
+     * @note If an array is returned, the array keys are submitter Ids
+     *
+     * @return A single submitter, if an ID is given as an argument. An associative array of submitters if no ID is given.
      */
-    public function getSubm()
-    {
+    public function getSubm($submId = NULL)
+    {	
+	if(!is_null($submId)){
+	   if(array_key_exists($submId,$this->_subm)){
+	       return $this->_subm[$submId];
+	   }else{
+	       throw new \Exception('Requested submitter not found');
+	   }
+	}
         return $this->_subm;
     }
     
@@ -173,36 +188,96 @@ class Gedcom
 	}
         return $this->_fam;
     }
-    
+        
     /**
+     * @brief Fetch a specific repository or all repositorys
      *
+     * @param $repoId (optional) An repository Id
+     *
+     * @throw Throws an exception if the requested repository is not found
+     *
+     * @note If an array is returned, the array keys are repository Ids
+     *
+     * @return A single repository, if an ID is given as an argument. An associative array of repositorys if no ID is given.
      */
-    public function getRepo()
+    public function getRepo($repoId = NULL)
     {
+	if(!is_null($repoId)){
+	   if(array_key_exists($repoId,$this->_repo)){
+	       return $this->_repo[$repoId];
+	   }else{
+	       throw new \Exception('Requested repository not found');
+	   }
+	}
         return $this->_repo;
     }
     
     /**
+     * @brief Fetch a specific source or all sources
      *
+     * @param $sourId (optional) An source Id
+     *
+     * @throw Throws an exception if the requested source is not found
+     *
+     * @note If an array is returned, the array keys are source Ids
+     *
+     * @return A single source, if an ID is given as an argument. An associative array of sources if no ID is given.
      */
-    public function getSour()
+    public function getSour($sourId = NULL)
     {
+	if(!is_null($sourId)){
+	   if(array_key_exists($sourId,$this->_sour)){
+	       return $this->_sour[$sourId];
+	   }else{
+	       throw new \Exception('Requested source not found');
+	   }
+	}
         return $this->_sour;
     }
     
     /**
+     * @brief Fetch a specific note or all notes
      *
+     * @param $noteId (optional) An note Id
+     *
+     * @throw Throws an exception if the requested note is not found
+     *
+     * @note If an array is returned, the array keys are note Ids
+     *
+     * @return A single note, if an ID is given as an argument. An associative array of notes if no ID is given.
      */
-    public function getNote()
+    public function getNote($noteId = NULL)
     {
+	if(!is_null($noteId)){
+	   if(array_key_exists($noteId,$this->_note)){
+	       return $this->_note[$noteId];
+	   }else{
+	       throw new \Exception('Requested note not found');
+	   }
+	}
         return $this->_note;
     }
-    
+
     /**
+     * @brief Fetch a specific object or all objects
      *
+     * @param $objeId (optional) An object Id
+     *
+     * @throw Throws an exception if the requested object is not found
+     *
+     * @note If an array is returned, the array keys are object Ids
+     *
+     * @return A single object, if an ID is given as an argument. An associative array of objects if no ID is given.
      */
-    public function getObje()
+    public function getObje($objeId = NULL)
     {
+	if(!is_null($objeId)){
+	   if(array_key_exists($objeId,$this->_obje)){
+	       return $this->_obje[$objeId];
+	   }else{
+	       throw new \Exception('Requested object not found');
+	   }
+	}
         return $this->_obje;
     }
     
